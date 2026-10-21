@@ -1,14 +1,13 @@
 # Sri Lanka House Price Estimator
 
-The app is live at `https://housepriceprediction-cdcyexdqhzf0g2e4.eastasia-01.azurewebsites.net/`
-
 Predicts the listing price of a Sri Lankan house from its features, explains each prediction with SHAP and LIME, and serves the model through a Streamlit app with an MLOps pipeline (GitHub, DagsHub, Azure).
+### The app is live at https://housepriceprediction-cdcyexdqhzf0g2e4.eastasia-01.azurewebsites.net/
 
 ## Problem
 House prices in Sri Lanka are set by seller and broker judgement, so buyers can't easily tell whether an asking price is fair. This regression model estimates a fair listing price and explains what drives it.
 
 ## Data
-- **Source:** Sri Lanka Property Ads Dataset (Kaggle), ikman.lk listings, Sep 2022 – Apr 2023
+- **Source:** Sri Lanka Property Ads [Dataset](https://www.kaggle.com/datasets/ivantha/sri-lanka-property-ads-dataset?select=properties.csv) (Kaggle), ikman.lk listings, Sep 2022 – Apr 2023
 - **Rows:** 14,396 houses for sale → 12,807 after cleaning
 - **Features:** bedrooms, bathrooms, house size, land size, district, city, plus storeys, road width and 8 amenity keywords extracted from the ad text
 - **Split:** grouped by seller (10,092 train / 2,715 test), so one agent's near-identical ads can't leak into the test set
