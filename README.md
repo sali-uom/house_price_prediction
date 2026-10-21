@@ -4,8 +4,6 @@ MSc AI (Batch 19), University of Moratuwa: Machine Learning final assignment.
 
 Predicts the listing price of a Sri Lankan house from its features, explains each prediction with SHAP and LIME, and serves the model through a Streamlit app with an MLOps pipeline (GitHub, DagsHub, Azure).
 
-Setup and run instructions are in [RUN.md](RUN.md).
-
 ## Problem
 House prices in Sri Lanka are set by seller and broker judgement, so buyers can't easily tell whether an asking price is fair. This regression model estimates a fair listing price and explains what drives it.
 
