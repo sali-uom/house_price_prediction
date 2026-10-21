@@ -1,0 +1,206 @@
+{
+  "model_name": "Stacking",
+  "features_num": [
+    "bedrooms",
+    "bathrooms",
+    "house_size_sqft",
+    "land_size_perches",
+    "storeys",
+    "road_width_ft",
+    "kw_luxury",
+    "kw_brand_new",
+    "kw_clear_deed",
+    "kw_pool",
+    "kw_ac",
+    "kw_solar",
+    "kw_parking",
+    "kw_main_road"
+  ],
+  "features_cat": [
+    "district",
+    "city"
+  ],
+  "keywords": [
+    "kw_luxury",
+    "kw_brand_new",
+    "kw_clear_deed",
+    "kw_pool",
+    "kw_ac",
+    "kw_solar",
+    "kw_parking",
+    "kw_main_road"
+  ],
+  "districts": [
+    "Ampara",
+    "Anuradhapura",
+    "Badulla",
+    "Batticaloa",
+    "Colombo",
+    "Galle",
+    "Gampaha",
+    "Hambantota",
+    "Jaffna",
+    "Kalutara",
+    "Kandy",
+    "Kegalle",
+    "Kilinochchi",
+    "Kurunegala",
+    "Mannar",
+    "Matale",
+    "Matara",
+    "Monaragala",
+    "Mullativu",
+    "Nuwara Eliya",
+    "Polonnaruwa",
+    "Puttalam",
+    "Ratnapura",
+    "Trincomalee",
+    "Vavuniya"
+  ],
+  "cities_by_district": {
+    "Ampara": [
+      "Other"
+    ],
+    "Anuradhapura": [
+      "Anuradhapura City",
+      "Other"
+    ],
+    "Badulla": [
+      "Badulla City",
+      "Other"
+    ],
+    "Batticaloa": [
+      "Batticaloa City"
+    ],
+    "Colombo": [
+      "Angoda",
+      "Athurugiriya",
+      "Battaramulla",
+      "Boralesgamuwa",
+      "Colombo 10",
+      "Colombo 15",
+      "Colombo 3",
+      "Colombo 5",
+      "Colombo 6",
+      "Colombo 8",
+      "Colombo 9",
+      "Dehiwala",
+      "Hanwella",
+      "Homagama",
+      "Kaduwela",
+      "Kesbewa",
+      "Kohuwala",
+      "Kolonnawa",
+      "Kottawa",
+      "Kotte",
+      "Maharagama",
+      "Malabe",
+      "Meegoda",
+      "Moratuwa",
+      "Mount Lavinia",
+      "Nawala",
+      "Nugegoda",
+      "Other",
+      "Padukka",
+      "Pannipitiya",
+      "Piliyandala",
+      "Rajagiriya",
+      "Ratmalana",
+      "Talawatugoda",
+      "Wellampitiya"
+    ],
+    "Galle": [
+      "Ambalangoda",
+      "Galle City",
+      "Other"
+    ],
+    "Gampaha": [
+      "Delgoda",
+      "Gampaha City",
+      "Ganemulla",
+      "Ja-Ela",
+      "Kadawatha",
+      "Kandana",
+      "Katunayake",
+      "Kelaniya",
+      "Kiribathgoda",
+      "Minuwangoda",
+      "Negombo",
+      "Nittambuwa",
+      "Other",
+      "Ragama",
+      "Seeduwa",
+      "Wattala"
+    ],
+    "Hambantota": [
+      "Other"
+    ],
+    "Jaffna": [
+      "Other"
+    ],
+    "Kalutara": [
+      "Bandaragama",
+      "Horana",
+      "Kalutara City",
+      "Matugama",
+      "Other",
+      "Panadura",
+      "Wadduwa"
+    ],
+    "Kandy": [
+      "Gampola",
+      "Kandy City",
+      "Katugastota",
+      "Other",
+      "Peradeniya"
+    ],
+    "Kegalle": [
+      "Kegalle City",
+      "Other",
+      "Warakapola"
+    ],
+    "Kilinochchi": [
+      "Other"
+    ],
+    "Kurunegala": [
+      "Kurunegala City",
+      "Other"
+    ],
+    "Mannar": [
+      "Other"
+    ],
+    "Matale": [
+      "Other"
+    ],
+    "Matara": [
+      "Matara City",
+      "Other"
+    ],
+    "Monaragala": [
+      "Other"
+    ],
+    "Mullativu": [
+      "Other"
+    ],
+    "Nuwara Eliya": [
+      "Other"
+    ],
+    "Polonnaruwa": [
+      "Other"
+    ],
+    "Puttalam": [
+      "Other"
+    ],
+    "Ratnapura": [
+      "Balangoda",
+      "Other"
+    ],
+    "Trincomalee": [
+      "Other"
+    ],
+    "Vavuniya": [
+      "Other"
+    ]
+  },
+  "test_mape": 25.7
+}

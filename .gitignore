@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+venv/
+.env
+mlruns/
+mlartifacts/
+.ipynb_checkpoints/
+catboost_info/
+/data/*.csv
