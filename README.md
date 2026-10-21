@@ -1,6 +1,6 @@
 # Sri Lanka House Price Estimator
 
-MSc AI (Batch 19), University of Moratuwa: Machine Learning final assignment.
+The app is live at `https://housepriceprediction-cdcyexdqhzf0g2e4.eastasia-01.azurewebsites.net/`
 
 Predicts the listing price of a Sri Lankan house from its features, explains each prediction with SHAP and LIME, and serves the model through a Streamlit app with an MLOps pipeline (GitHub, DagsHub, Azure).
 
