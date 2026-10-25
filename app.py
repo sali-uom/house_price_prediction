@@ -47,7 +47,7 @@ house_size = col1.number_input("House size (sqft)", 300, 15000, 2000, step=100)
 land_size = col2.number_input("Land size (perches)", 2.0, 160.0, 10.0, step=0.5)
 storeys = col1.selectbox("Storeys", ["Unknown", 1, 2, 3, 4])
 road_width = col2.number_input("Road width (ft, 0 = unknown)", 0, 60, 0)
-level = st.select_slider("Range confidence", options=[0.8, 0.9, 0.95], value=0.8, format_func=lambda v: f"{v:.0%}")
+level = st.select_slider("Range Coverage (How likely the actual price is within this range)", options=[0.8, 0.9, 0.95], value=0.8, format_func=lambda v: f"{v:.0%}")
 
 st.write("**Features**")
 cols = st.columns(4)
