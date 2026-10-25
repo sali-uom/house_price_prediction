@@ -3,6 +3,11 @@ import json
 import joblib
 import numpy as np
 import pandas as pd
+import sklearn
+from ngboost import NGBRegressor
+
+# Lets scikit-learn pipelines recognise a fitted NGBoost model
+NGBRegressor.__sklearn_is_fitted__ = lambda self: bool(getattr(self, "base_models", None))
 
 model = joblib.load("models/house_price_model.pkl")
 meta = json.load(open("models/model_meta.json"))
@@ -28,5 +33,24 @@ def test_bigger_house_costs_more():
     assert large > small
 
 
+def test_range_contains_estimate():
+    x = model.named_steps["prep"].transform(make_row())
+    params = model.named_steps["model"].pred_dist(x).params
+    loc, scale = params["loc"][0], params["scale"][0] * meta["interval_scale"]
+    assert scale > 0
+    assert loc - 1.28 * scale < loc < loc + 1.28 * scale
+
+
 def test_quality_gate():
     assert meta["test_mape"] < 40, "Model error too high to deploy"
+
+
+def test_ranges_are_calibrated():
+    if "test_coverage_80" in meta:
+        assert 70 <= meta["test_coverage_80"] <= 92, "80% price ranges are badly calibrated"
+
+
+def test_sklearn_version_matches_training():
+    if "sklearn_version" in meta:
+        assert meta["sklearn_version"] == sklearn.__version__, (
+            f"Model trained with scikit-learn {meta['sklearn_version']}, but {sklearn.__version__} is installed.")

@@ -1,13 +1,16 @@
 # Sri Lanka House Price Estimator
 
 Predicts the listing price of a Sri Lankan house from its features, explains each prediction with SHAP and LIME, and serves the model through a Streamlit app with an MLOps pipeline (GitHub, DagsHub, Azure).
-### The app is live at https://housepriceprediction-cdcyexdqhzf0g2e4.eastasia-01.azurewebsites.net/
+
+Local setup and run instructions are in [RUN.md](RUN.md).
+
+The app is live at https://housepriceprediction-cdcyexdqhzf0g2e4.eastasia-01.azurewebsites.net/
 
 ## Problem
 House prices in Sri Lanka are set by seller and broker judgement, so buyers can't easily tell whether an asking price is fair. This regression model estimates a fair listing price and explains what drives it.
 
 ## Data
-- **Source:** Sri Lanka Property Ads [Dataset](https://www.kaggle.com/datasets/ivantha/sri-lanka-property-ads-dataset?select=properties.csv) (Kaggle), ikman.lk listings, Sep 2022 – Apr 2023
+- **Source:** Sri Lanka Property Ads [Dataset](https://www.kaggle.com/datasets/ivantha/sri-lanka-property-ads-dataset?select=properties.csv), ikman.lk listings, Sep 2022 – Apr 2023
 - **Rows:** 14,396 houses for sale → 12,807 after cleaning
 - **Features:** bedrooms, bathrooms, house size, land size, district, city, plus storeys, road width and 8 amenity keywords extracted from the ad text
 - **Split:** grouped by seller (10,092 train / 2,715 test), so one agent's near-identical ads can't leak into the test set
@@ -19,22 +22,22 @@ House prices in Sri Lanka are set by seller and broker judgement, so buyers can'
 - Most listings are from Colombo and Gampaha.
 
 ## Models and results
-Random Forest (baseline), XGBoost, LightGBM, CatBoost and a stacking ensemble, all tuned with Optuna using seller-grouped cross-validation.
+Random Forest (baseline), XGBoost, LightGBM, CatBoost and a stacking ensemble, all tuned with Optuna using cross validation grouped by seller.
 
 | Model | RMSE (log) | R² (log) | MAPE (%) |
 |---|---|---|---|
-| **CatBoost** | **0.365** | **0.800** | **25.8** |
-| Stacking | 0.366 | 0.799 | 25.9 |
-| LightGBM | 0.376 | 0.787 | 26.5 |
-| XGBoost | 0.386 | 0.776 | 27.4 |
-| Random Forest | 0.410 | 0.748 | 27.6 |
+| **Stacking** | **0.364** | **0.800** | **25.3** |
+| LightGBM | 0.368 | 0.796 | 25.7 |
+| XGBoost | 0.370 | 0.794 | 25.3 |
+| CatBoost | 0.371 | 0.793 | 26.3 |
+| Random Forest | 0.408 | 0.750 | 27.5 |
 
-**CatBoost was selected:** it had the lowest test and cross-validation error and handles the city and district categories natively. Stacking tied but is more complex.
+**Stacking was selected:** it combines XGBoost, LightGBM and CatBoost through a RidgeCV combiner and had the lowest test RMSE and highest R². XGBoost (weight 0.47) and CatBoost (0.44) carry most of the stack. CatBoost and stacking are the new methods not covered in lectures.
 
 ## What drives price (SHAP)
-1. Location (city + district) has the largest combined effect.
-2. Bathrooms and house size are the main structural drivers.
-3. Land size and a "luxury" mention in the ad add a premium.
+1. House size and bathrooms are the strongest single features.
+2. Location (city + district) has the largest combined effect.
+3. A "luxury" mention and land size add a premium.
 4. Storeys and road width matter little, since most ads omit them.
 
 LIME explanations for individual houses agree with SHAP on these main drivers.

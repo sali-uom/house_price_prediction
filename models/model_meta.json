@@ -1,5 +1,5 @@
 {
-  "model_name": "Stacking",
+  "model_name": "NGBoost",
   "features_num": [
     "bedrooms",
     "bathrooms",
@@ -202,5 +202,6 @@
       "Other"
     ]
   },
-  "test_mape": 25.3
+  "test_mape": 26.3,
+  "interval_scale": 1.3753
 }
